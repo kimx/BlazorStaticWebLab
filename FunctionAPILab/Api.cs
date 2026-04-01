@@ -3,7 +3,8 @@ using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Net;
-
+using System.Threading;
+using System.Threading.Tasks;
 namespace FunctionAPILab
 {
     public class Api
@@ -16,7 +17,7 @@ namespace FunctionAPILab
         }
 
         [Function("GetMessage")]
-        public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req)
+        public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req, CancellationToken cancellationToken)
         {
             _logger.LogInformation("C# HTTP trigger function processed a request.");
 
@@ -26,7 +27,7 @@ namespace FunctionAPILab
             response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
             response.Headers.Add("Access-Control-Allow-Headers", "Content-Type");
 
-            response.WriteString("Welcome to Azure Functions!:" + DateTime.Now.ToString());
+            await response.WriteStringAsync("Welcome to Azure Functions!:" + DateTime.Now.ToString(), cancellationToken);
 
             return response;
         }

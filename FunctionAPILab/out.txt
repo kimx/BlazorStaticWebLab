@@ -1,0 +1,11 @@
+  Determining projects to restore...
+  Restored D:\GitHub\BlazorStaticWebLab\FunctionAPILab\FunctionAPILab.csproj (in 295 ms).
+C:\Users\user\.nuget\packages\microsoft.azure.functions.worker.sdk\1.18.1\build\Microsoft.Azure.Functions.Worker.Sdk.targets(77,5): error : Invalid combination of TargetFramework and AzureFunctionsVersion is set. [D:\GitHub\BlazorStaticWebLab\FunctionAPILab\FunctionAPILab.csproj]
+
+Build FAILED.
+
+C:\Users\user\.nuget\packages\microsoft.azure.functions.worker.sdk\1.18.1\build\Microsoft.Azure.Functions.Worker.Sdk.targets(77,5): error : Invalid combination of TargetFramework and AzureFunctionsVersion is set. [D:\GitHub\BlazorStaticWebLab\FunctionAPILab\FunctionAPILab.csproj]
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:01.02
