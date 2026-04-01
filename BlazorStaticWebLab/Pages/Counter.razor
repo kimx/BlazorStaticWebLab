@@ -1,5 +1,6 @@
 ﻿@page "/counter"
 @inject HttpClient Http
+@inject IWebAssemblyHostEnvironment Env
 
 <PageTitle>Counter</PageTitle>
 
@@ -14,6 +15,10 @@
 
     private async Task GetMessage()
     {
-        message = await Http.GetStringAsync("http://localhost:7211/api/GetMessage");
+        var url = Env.IsProduction()
+            ? "/api/GetMessage"
+            : "http://localhost:7211/api/GetMessage";
+
+        message = await Http.GetStringAsync(url);
     }
 }
